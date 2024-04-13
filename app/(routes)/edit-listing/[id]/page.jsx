@@ -78,7 +78,7 @@ function EditListing({ params }) {
             console.log(data);
             toast('Listing updated and Published');
             setLoading(false)
-            publishBtnHandler();
+            //publishBtnHandler();
         }
         for (const image of images) {
             setLoading(true)
@@ -236,7 +236,7 @@ function EditListing({ params }) {
                                     </div>
                                     <div className='flex gap-2 flex-col'>
                                         <h2 className='text-gray-500'>Area (Sq.Ft)</h2>
-                                        <Input type="number" placeholder="Ex.300" name="area"
+                                        <Input type="number" placeholder="Ex.1900" name="area"
                                             onChange={handleChange}
                                             defaultValue={listing?.area} />
                                     </div>
@@ -245,14 +245,14 @@ function EditListing({ params }) {
                                 <div className='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                                     <div className='flex gap-2 flex-col'>
                                         <h2 className='text-gray-500'>Selling Price ($)</h2>
-                                        <Input type="number" placeholder="" name="price"
+                                        <Input type="number" placeholder="400000" name="price"
                                             onChange={handleChange}
                                             defaultValue={listing?.price} />
                                     </div>
                                     <div className='flex gap-2 flex-col'>
                                         <h2 className='text-gray-500'>Rent (Per Week) ($)</h2>
                                         <Input type="number"
-                                            defaultValue={listing?.hoa} placeholder="300" onChange={handleChange}
+                                            defaultValue={listing?.hoa} placeholder="100" onChange={handleChange}
                                             name="hoa" />
                                     </div>
 
