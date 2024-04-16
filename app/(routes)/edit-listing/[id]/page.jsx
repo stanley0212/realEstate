@@ -76,7 +76,7 @@ function EditListing({ params }) {
 
         if (data) {
             console.log(data);
-            toast('Listing updated and Published');
+            toast('Listing saved');
             setLoading(false)
             //publishBtnHandler();
         }
@@ -135,6 +135,21 @@ function EditListing({ params }) {
             toast('Listing published!')
         }
         
+    }
+
+    const onHandleClose = async() => {
+        setLoading(true)
+        const { data, error } = await supabase
+        .from('listing')
+        .update({ active: false })
+        .eq('id', params?.id)
+        .select()
+
+        if(data)
+        {
+            setLoading(false)
+            toast('Listing closing!')
+        }
     }
 
     return (
@@ -274,6 +289,10 @@ function EditListing({ params }) {
                                     />
                                 </div>
                                 <div className='flex gap-7 justify-end'>
+
+                                    <Button disabled={loading} variant="outline" className="text-primary border-primary" onClick={() => onHandleClose()}> 
+                                        {loading ? <Loader className='animate-spin' /> : 'Close'}
+                                    </Button>
 
                                     <Button disabled={loading} variant="outline" className="text-primary border-primary">
                                         {loading ? <Loader className='animate-spin' /> : 'Save'}
