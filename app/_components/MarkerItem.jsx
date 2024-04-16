@@ -13,8 +13,8 @@ function MarkerItem({item}) {
             icon={{
                 url:'/pin.png',
                 scaledSize:{
-                    width:60,
-                    height:60
+                    width:30,
+                    height:30
                 }
             }}
         >

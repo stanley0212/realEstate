@@ -270,7 +270,12 @@ function EditListing({ params }) {
                                             defaultValue={listing?.hoa} placeholder="100" onChange={handleChange}
                                             name="hoa" />
                                     </div>
-
+                                    <div className='flex gap-2 flex-col'>
+                                        <h2 className='text-gray-500'>Bond ($)</h2>
+                                        <Input type="number"
+                                            defaultValue={listing?.bond} placeholder="100" onChange={handleChange}
+                                            name="bond" />
+                                    </div>
 
                                 </div>
                                 <div className='grid  grid-cols-1  gap-10'>

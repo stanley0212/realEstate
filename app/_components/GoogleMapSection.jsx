@@ -11,14 +11,11 @@ const containerStyle = {
 function GoogleMapSection({coordinates,listing}) {
    
     const [center,setCenter]=useState({
-        lat: 40.730610,
-        lng: -73.935242
+        lat: -37.81033,
+        lng: 144.95956
       })
       const [map, setMap] = useState(null)
-      const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_PLACE_API_KEY
-      })
+
       useEffect(()=>{
         coordinates&&setCenter(coordinates)
       },[coordinates])
@@ -49,7 +46,15 @@ function GoogleMapSection({coordinates,listing}) {
         
         onUnmount={onUnmount}
         gestureHandling="greedy"
-      />
+      >
+        { /* Child components, such as markers, info windows, etc. */ }
+        {listing.map((item,index)=>(
+            <MarkerItem
+                key={index}
+                item={item}
+            />
+        ))}
+      </GoogleMap>
     </div>
   )
 }
